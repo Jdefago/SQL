@@ -1,0 +1,37 @@
+--My Bookstore
+
+CREATE TABLE bookstore (id INTEGER PRIMARY KEY, book_title TEXT, Author TEXT, genre TEXT, aisle TEXT, inventory INTEGER, sold INTEGER);
+
+INSERT INTO bookstore VALUES (1, "Stardust", "Neil Gaiman", "Fantasy", "A", 364, 25);
+INSERT INTO bookstore VALUES (2, "Serving crazy with curry", "Amulya Malladi", "Fiction", "B", 125, 18);
+INSERT INTO bookstore VALUES (3, "Rise of Kyoshi", "FC Yee", "Fiction", "B", 205, 82);
+INSERT INTO bookstore VALUES (4, "Shadow of Kyoshi", "FC Yee", "Fiction", "B", 247, 100);
+INSERT INTO bookstore VALUES (5, "The Mango Season", "Amulya Malladi", "Fiction", "B", 500, 154);
+INSERT INTO bookstore VALUES (6, "Good Omens", "Neil Gaiman", "Fantasy", "A", 486, 55);
+INSERT INTO bookstore VALUES (7, "The Girl with All the Gifts", "M.R. Carey", "Fantasy", "A", 94, 16);
+INSERT INTO bookstore VALUES (8, "The Hunger Games", "Suzanne Collins", "Fantasy", "A", 289, 56);
+INSERT INTO bookstore VALUES (9, "My side of the mountain", "Jean Craighead George", "Fiction", "B", 362, 52);
+INSERT INTO bookstore VALUES (10, "Catching Fire", "Suzanne Collins", "Fantasy", "A", 284, 53);
+INSERT INTO bookstore VALUES (11, "Mocking Jay", "Suzanne Collins", "Fiction", "B", 286, 56);
+INSERT INTO bookstore VALUES (12, "Hatchet", "Gary Paulson", "Fiction", "B", 74, 12);
+INSERT INTO bookstore VALUES (13, "My Booky Wook", "Russell Brand", "Autobiography", "C", 466, 24);
+INSERT INTO bookstore VALUES (14, "Don't touch my hair", "Phoebe Robinson", "Autobiography", "C", 132, 130);
+INSERT INTO bookstore VALUES (15, "Fresh off the Boat", "Eddie Huang", "Autobiography", "C", 694, 62);
+INSERT INTO bookstore VALUES (16, "Halo: The Fall of Reach", "Eric Nylund", "Fiction", "B", 156, 65);
+INSERT INTO bookstore VALUES (17, "Halo: First Strike", "Eric Nylund", "Fiction", "B", 173, 58);
+
+--Display all books by inventory
+SELECT * 
+FROM bookstore 
+ORDER BY inventory desc;
+
+--What is the avg inventory of items in the Fiction section? 
+SELECT AVG(inventory) "avg inventory of Fiction"
+FROM bookstore
+where genre='Fiction';
+
+--Top 5 books by number sold
+Select book_title, author, sold 
+FROM bookstore 
+ORDER BY sold 
+desc limit 5;
